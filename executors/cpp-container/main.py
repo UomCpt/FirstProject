@@ -14,7 +14,7 @@ def run_script():
             check=True            # Raise an error if the script fails
         )
         # Return the output of the script
-        return {"message": "Script executed successfully!", "output": result.stdout}
+        return result.stdout
     except subprocess.CalledProcessError as e:
         # Handle script errors
         return {"error": f"Script failed with error: {e.stderr}"}
