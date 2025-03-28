@@ -1,11 +1,16 @@
 import subprocess
 import json
+import sys
 
-cpp_file = "wow.cpp"
+if len(sys.argv) < 2:
+    print("error")
+    sys.exit(1)
+
+cpp_file = sys.argv[1]
 output = "program"
 
 compile_command = ["g++", cpp_file, "-o", output]
-compilation = subprocess.run(compile_command, capture_output = True)
+compilation = subprocess.run(compile_command, capture_output = True, text = True)
 
 cases = []
 
@@ -55,8 +60,4 @@ data = {
     "cases": cases
 }
 
-print(data)
-
-#Pros to paron den stelenetai kapou 
-"""with open("results.json", "w") as file:
-    json.dump(data, file, indent = 4)"""
+print(json.dumps(data))

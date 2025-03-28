@@ -8,6 +8,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install the dependencies
+RUN mkdir -p /app/uploads
 RUN pip install --no-cache-dir -r requirements.txt
 RUN apt-get update && apt-get install -y build-essential
 
