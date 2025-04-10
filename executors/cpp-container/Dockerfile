@@ -14,8 +14,6 @@ RUN apt-get update && apt-get install -y build-essential
 
 # Copy both main.py and script.py to the container
 COPY main.py /app/
-COPY script.py /app/
-COPY wow.cpp /app/wow.cpp
 
 # Expose the port FastAPI will run on
 EXPOSE 8000
