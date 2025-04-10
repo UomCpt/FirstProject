@@ -5,7 +5,7 @@ class LeaderboardWrapper extends Component {
     render() {
         return (
             <>
-                <h1>UoM Hackathon 2025</h1>
+                <h1>UoM Hackathon 2026</h1>
                 <LeaderboardTeamList/>
             </>
         );
