@@ -30,6 +30,13 @@ async def upload_cpp(file: UploadFile = File(...)):
         return {"error": "Failed to decode JSON"}
     except Exception as e:
         return {"error": f"Script execution failed: {str(e)}"}
+    finally:
+        try:
+            if os.path.exists(file_path):
+                os.remove(file_path)
+        except Exception as cleanup_error:
+            return{ f"Failed to delete file {file_path}" : f"{cleanup_error}"}
+    
 
 #Compilation and execution function
 def script(file_path):
@@ -67,7 +74,7 @@ def script(file_path):
         return {
             "stdout": compilation.stdout,
             "stderr": compilation.stderr,
-            "returncode": compilation.returncode
+            "returncode": compilation.returncode,
         }
     
 
