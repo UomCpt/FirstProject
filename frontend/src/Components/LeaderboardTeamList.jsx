@@ -1,44 +1,42 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
 class LeaderboardTeamList extends Component {
-
     constructor(props) {
         super(props);
 
         this.state = {
-            teams : [
+            teams: [
                 {
-                    name: 'Team A',
-                    uni: 'UoM',
+                    name: "Team A",
+                    uni: "UoM",
                     solvedProblems: 4,
                     totalRuntime: 545
                 },
                 {
-                    name: 'Team B',
-                    uni: 'Auth',
+                    name: "Team B",
+                    uni: "Auth",
                     solvedProblems: 6,
                     totalRuntime: 359
                 },
                 {
-                    name: 'Team C',
-                    uni: 'UoM',
+                    name: "Team C",
+                    uni: "UoM",
                     solvedProblems: 4,
                     totalRuntime: 407
                 }
             ]
-        }
+        };
     }
 
     sortByProbSolved = () => {
-        const sorted = [...this.state.teams]
-            .sort((a, b) => {
-                if(a.solvedProblems !== b.solvedProblems) {
-                    return b.solvedProblems - a.solvedProblems;
-                }
-                return a.totalRuntime - b.totalRuntime;
-            });
-        this.setState({teams: sorted});
-    }
+        const sorted = [...this.state.teams].sort((a, b) => {
+            if (a.solvedProblems !== b.solvedProblems) {
+                return b.solvedProblems - a.solvedProblems;
+            }
+            return a.totalRuntime - b.totalRuntime;
+        });
+        this.setState({ teams: sorted });
+    };
 
     componentDidMount() {
         this.sortByProbSolved();
@@ -51,11 +49,37 @@ class LeaderboardTeamList extends Component {
     render() {
         return (
             <div>
-                <ul>
-                    {this.state.teams.map((teams, index) => (
-                        <li key={teams.name}>{index + 1}, {teams.name}, {teams.uni}, {teams.solvedProblems}, {teams.totalRuntime}</li>
+                <h2>Leaderboard</h2>
+                <table
+                    border="1"
+                    cellPadding="8"
+                    style={{ borderCollapse: "collapse", width: "100%" }}
+                >
+                    <thead>
+                    <tr>
+                        <th>place</th>
+                        <th>Team </th>
+                        <th>Score/Time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {this.state.teams.map((team, index) => (
+                        <tr key={team.name}>
+                            <td>{index + 1}</td>
+                            <td>
+                                <strong>{team.name}</strong>
+                                <br />
+                                <small>{team.uni}</small>
+                            </td>
+                            <td>
+                                {team.solvedProblems} problems
+                                <br />
+                                {team.totalRuntime} ms
+                            </td>
+                        </tr>
                     ))}
-                </ul>
+                    </tbody>
+                </table>
             </div>
         );
     }

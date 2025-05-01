@@ -7,8 +7,10 @@ class LeaderboardWrapper extends Component {
         return (
             <>
                 <h1>UoM Hackathon 2026</h1>
-                <LeaderboardTeamList/>
-                <ProblemSummary/>
+                <div className="leaderboardContainer">
+                    <LeaderboardTeamList/>
+                    <ProblemSummary/>
+                </div>
             </>
         );
     }
