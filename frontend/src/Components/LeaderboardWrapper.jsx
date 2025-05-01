@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import LeaderboardTeamList from "./LeaderboardTeamList.jsx";
+import ProblemSummary from "./ProblemSummary.jsx";
 
 class LeaderboardWrapper extends Component {
     render() {
@@ -7,6 +8,7 @@ class LeaderboardWrapper extends Component {
             <>
                 <h1>UoM Hackathon 2026</h1>
                 <LeaderboardTeamList/>
+                <ProblemSummary/>
             </>
         );
     }
