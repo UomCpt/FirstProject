@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import LeaderboardTeamList from "./LeaderboardTeamList.jsx";
 import ProblemSummary from "./ProblemSummary.jsx";
+import ScrollToTopBtn from "./ScrollToTopBtn.jsx";
 
 class LeaderboardWrapper extends Component {
     render() {
@@ -10,6 +11,7 @@ class LeaderboardWrapper extends Component {
                 <div className="leaderboardContainer">
                     <LeaderboardTeamList/>
                     <ProblemSummary/>
+                    <ScrollToTopBtn />
                 </div>
             </>
         );
