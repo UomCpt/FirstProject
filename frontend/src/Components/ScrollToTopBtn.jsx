@@ -18,7 +18,7 @@ class ScrollToTopBtn extends Component {
     }
 
     toggleVisible = () => {
-        if(window.scrollY > 300) {
+        if(window.scrollY > 100) {
             this.setState({
                 visible: true
             });
@@ -39,8 +39,14 @@ class ScrollToTopBtn extends Component {
     render() {
         return (
             <div>
-                {this.state.visible || (
-                    <button onClick={this.scrollToTop}>
+                {this.state.visible && (
+                    <button onClick={this.scrollToTop}
+                    style={{
+                        position: "fixed",
+                        bottom: "20px",
+                        right: "20px",
+                        cursor: "pointer"
+                    }}>
                         go to top
                     </button>
                 )}
